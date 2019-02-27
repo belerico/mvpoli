@@ -1,4 +1,4 @@
-LEGENDA:
+# LEGENDA:
 con (M ...) si intende la struttura monomio così formata: (M Coefficient TotalDegree VarsPowers) 
 con (M 0 0 NIL) si intende la struttura monomio nullo
 con (POLY Ms) si intende la struttura polinomio, dove al posto di Ms si intende una lista di strutture monomio (M ...) 
@@ -6,7 +6,7 @@ con (POLY NIL) si intende la struttura polinomio nullo
 
 ----------------------------------------------------------------------------------------------
 
-INTRODUZIONE:
+# INTRODUCTION:
 Lo scopo di questo progetto è la costruzione di una libreria per la manipolazione di polinomi multivariati.
 dalla specifica del pdf era richiesto di implementare operazioni standard e abbastanza semplici sui polinomi, noi ci siamo
 voluti spingere un po oltre, e abbiamo anche implementato cose un po più avanzate, per esempio la possibilità di trattare un polinomio elevato alla n, oppure polinomi con più coefficenti, polinomi che si moltiplicano ecc..
@@ -43,7 +43,7 @@ Dato che l'utente che utilizza questa libreria non dovrebbe essere a conoscenza 
 
 ----------------------------------------------------------------------------------------------
 
-FUNZIONI:
+FUNCTIONS:
 Function: (is-monomial Monomial) 
 Output: T o NIL
 Descrizione: Data una struttura Monomial, ritorna la lista di varpowers VP-list.
