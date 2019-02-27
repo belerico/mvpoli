@@ -1,4 +1,4 @@
-LEGENDA:
+LEGENDA:\n
 con m(...) si intende la struttura monomio così formata: m(Coefficient, TotalDegree, VarsPowers).
 con m(0, 0, []) si intende la struttura monomio nullo.
 con poly(Ms) si intende la struttura polinomio, dove con Ms si intende una lista di strutture monomio m(...).
