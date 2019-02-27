@@ -3,10 +3,10 @@ con m(...) si intende la struttura monomio così formata: m(Coefficient, TotalDe
 con m(0, 0, []) si intende la struttura monomio nullo.  
 con poly(Ms) si intende la struttura polinomio, dove con Ms si intende una lista di strutture monomio m(...).  
 con poly([]) si intende la struttura polinomio nullo   
-
-----------------------------------------------------------------------------------------------
-
-INTRODUZIONE: 
+  
+----------------------------------------------------------------------------------------------  
+  
+INTRODUZIONE:  
 Lo scopo di questo progetto è la costruzione di una libreria per la manipolazione di polinomi multivariati.
 dalla specifica del pdf era richiesto di implementare operazioni standard e abbastanza semplici sui polinomi, noi ci siamo
 voluti spingere un po oltre, e abbiamo anche implementato cose un po più avanzate, per esempio la possibilità di trattare un polinomio elevato alla n, oppure polinomi con più coefficenti, polinomi che si moltiplicano ecc..
