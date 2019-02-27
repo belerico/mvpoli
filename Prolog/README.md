@@ -10,13 +10,13 @@
 # INTRODUCTION:
 
 The aim of this project is the construction of a library for the manipulation of multivariate polynomials.  
-from the pdf specification it was required to implement standard and fairly simple operations on polynomials, we are there
+From the pdf specification it was required to implement standard and fairly simple operations on polynomials, we are there
 wanted to push a little further, and we have also implemented things a bit more advanced, for example the ability to treat a polynomial elevated to n, or polynomials with more coefficients, polynomials that multiply etc ..
 the only untreated case is the division between polynomials.  
-examples of cases treated: (x + y) ^ 2, 3 * x * 5 * z + a * 3 * b, (x + y) * (2 * a + b)
-given that from the specification of the pdf the interpretation of what can be a monomial and what a polynomial has seemed quite free
+Examples of cases treated: (x + y) ^ 2, 3 * x * 5 * z + a * 3 * b, (x + y) * (2 * a + b)  
+Given that from the specification of the pdf the interpretation of what can be a monomial and what a polynomial has seemed quite free
 we have opted for this interpretation:
-First of all, as regards the monomers, we wanted to exploit the concept of "inheritance" according to which a monomial is a polynomial composed only by a term (https://en.wikipedia.org/wiki/Monomial).
+First of all, as regards the monomials, we wanted to exploit the concept of "inheritance" according to which a monomial is a polynomial composed only by a term (https://en.wikipedia.org/wiki/Monomial).
 As a result, we asked ourselves the following question:
 can the expression x + x be considered a monomial? Or better:
 are all those expressions that are simplified and are composed of a single term?
@@ -58,115 +58,114 @@ Predicate: is_monomial (Monomial)
     * a non-parsed expression representing monomial
 
 Predicate: is_polynomial (Poly)
-Description: The is_polynomial predicate is true when Poly is a polynomial.
-    Poly can take one of the following forms:
+
+* Description: The is_polynomial predicate is true when Poly is a polynomial. Poly can take one of the following forms:
+    * a structure of the poly type ([])
+    * a structure of the poly type (Ms)
+    * a structure of the type m (0, 0, [])
+    * a structure of the type m (...)
+    * a non-parsed expression representing a polynomial
+
+Predicate: coefficients (Poly, Coefficients)
+
+* Description: The predicate coefficients is true when Coefficients is a list of "obviously" Poly coefficients. Poly can take one of the following forms:
+    * a structure of the poly type ([])
+    * a structure of the poly type (Ms)
+    * a structure of the type m (0, 0, [])
+    * a structure of the type m (...)
+    * a non-parsed expression representing a polynomial    
+	      
+Predicate: variables (Poly, Variables)
+
+* Description: The variables predicate is true when Variables is a list of variable symbols that appear in Poly. Poly can take one of the following forms:
+    * a structure of the type poly ([])
+    * a structure of the poly type (Ms)
+    * a structure of the type m (0, 0, [])
+    * a structure of the type m (...)
+    * an unparsed expression representing a polynomial
+  
+Predicate: monomials (Poly, Monomials)
+
+* Description: The predicate monomials is true when Monomials is the ordered list, of the monomials that appear in Poly. Poly can take one of the following forms:
+    * a structure of the type poly ([])
+    * a structure of the poly type (Ms)
+    * a structure of the type m (0, 0, [])
+    * a structure of the type m (...)
+    * an unparsed expression representing a polynomial
+
+Predicate: maxdegree (Poly, Degree)
+Description: The maxdegree predicate is true when Degree is the maximum degree of the monomers that appear in Poly.
+  Poly can take one of the following forms:
+ - a structure of the poly type ([])
+  - a structure of the poly type (Ms)
+  - a structure of the type m (0, 0, [])
+  - a structure of the type m (...)
+  - a non-parsed expression representing a polynomial
+  
+Predicate: mindegree (Poly, Degree)
+Description: The mindegree predicate is true when Degree is the minimum degree of the monomials that appear in Poly.
+Poly can take one of the following forms:
  - a structure of the poly type ([])
   - a structure of the poly type (Ms)
   - a structure of the type m (0, 0, [])
   - a structure of the type m (...)
   - a non-parsed expression representing a polynomial
 
-Predicate: coefficients (Poly, Coefficients)
-Description: The predicate coefficients is true when Coefficients is a list of "obviously" Poly coefficients.
-             Poly can take one of the following forms:
+Predicate: polyplus (Poly1, Poly2, Result)
+Description: The polyplus predicate is true when Result is the sum polynomial of Poly1 and Poly2.
+Poly1 and Poly2 can take one of the following forms:
  - a structure of the poly type ([])
   - a structure of the poly type (Ms)
   - a structure of the type m (0, 0, [])
   - a structure of the type m (...)
-  - a non-parsed expression representing a polynomial    
-	      
-Predicate: variables(Poly, Variables)
-Descrizione: Il predicato variables è vero quando Variables è una lista dei simboli di variabile che appaiono in Poly.
-  	     Poly può assumere una delle seguenti forme:
- 	     - una struttura del tipo poly([])
-  	     - una struttura del tipo poly(Ms)
-  	     - una struttura del tipo m(0, 0, [])
-  	     - una struttura del tipo m(...)
-  	     - un'espressione non parsata rappresentante un polinomio   
-  	       
-Predicate: monomials(Poly, Monomials)
-Descrizione: Il predicato monomials è vero quando Monomials è la lista ordinata, dei monomi che
-	     appaiono in Poly.
-	     Poly può assumere una delle seguenti forme:
- 	     - una struttura del tipo poly([])
-  	     - una struttura del tipo poly(Ms)
-  	     - una struttura del tipo m(0, 0, [])
-  	     - una struttura del tipo m(...)
-  	     - un'espressione non parsata rappresentante un polinomio     
-	      
-Predicate: maxdegree(Poly, Degree)
-Descrizione: Il predicato maxdegree è vero quando Degree è il massimo grado dei monomi che appaiono in Poly.
-  	     Poly può assumere una delle seguenti forme:
- 	     - una struttura del tipo poly([])
-  	     - una struttura del tipo poly(Ms)
-  	     - una struttura del tipo m(0, 0, [])
-  	     - una struttura del tipo m(...)
-  	     - un'espressione non parsata rappresentante un polinomio   
-  	      
-Predicate: mindegree(Poly, Degree)
-Descrizione: Il predicato mindegree è vero quando Degree è il minimo grado dei monomi che appaiono in Poly.
-	     Poly può assumere una delle seguenti forme:
- 	     - una struttura del tipo poly([])
-  	     - una struttura del tipo poly(Ms)
-  	     - una struttura del tipo m(0, 0, [])
-  	     - una struttura del tipo m(...)
-  	     - un'espressione non parsata rappresentante un polinomio     
-	      
-Predicate: polyplus(Poly1, Poly2, Result)
-Descrizione: Il predicato polyplus è vero quando Result è il polinomio somma di Poly1 e Poly2.
-	     Poly1 e Poly2 possono assumere una delle seguenti forme:
- 	     - una struttura del tipo poly([])
-  	     - una struttura del tipo poly(Ms)
-  	     - una struttura del tipo m(0, 0, [])
-  	     - una struttura del tipo m(...)
-  	     - un'espressione non parsata rappresentante un polinomio      
+  - a non-parsed expression representing a polynomial
 
-Predicate: polyminus(Poly1, Poly2, Result)
-Descrizione: Il predicato polyminus è vero quando Result è il polinomio differenza di Poly1 e Poly2.
-      	     Poly1 e Poly2 possono assumere una delle seguenti forme:
- 	     - una struttura del tipo poly([])
-  	     - una struttura del tipo poly(Ms)
-  	     - una struttura del tipo m(0, 0, [])
-  	     - una struttura del tipo m(...)
-  	     - un'espressione non parsata rappresentante un polinomio      
+Predicate: polyminus (Poly1, Poly2, Result)
+Description: The polyminus predicate is true when Result is the polynomial difference of Poly1 and Poly2.
+      Poly1 and Poly2 can take one of the following forms:
+ - a structure of the poly type ([])
+  - a structure of the poly type (Ms)
+  - a structure of the type m (0, 0, [])
+  - a structure of the type m (...)
+  - a non-parsed expression representing a polynomial
 
-Predicate: polytimes(Poly1, Poly2, Result)
-Descrizione: Il predicato polytimes è vero quando Result è il polinomio 
-	     risultante dalla moltiplicazione di Poly1 e Poly2.
-	     Poly1 e Poly2 possono assumere una delle seguenti forme:
- 	     - una struttura del tipo poly([])
-  	     - una struttura del tipo poly(Ms)
-  	     - una struttura del tipo m(0, 0, [])
-  	     - una struttura del tipo m(...)
-  	     - un'espressione non parsata rappresentante un polinomio 
+Predicate: polytimes (Poly1, Poly2, Result)
+Description: The polytimes predicate is true when Result is the polynomial
+resulting from the multiplication of Poly1 and Poly2.
+Poly1 and Poly2 can take one of the following forms:
+ - a structure of the poly type ([])
+  - a structure of the poly type (Ms)
+  - a structure of the type m (0, 0, [])
+  - a structure of the type m (...)
+  - a non-parsed expression representing a polynomial
 
-Predicate: polytimes_k(Poly1, K, Result)
-Descrizione: il predicato polytimes è vero quando Result è 
- 	     il polinomio risultante dalla moltiplicazione di Poly1 e K.
- 	     dove K è un valore numerico.
-	     Poly1 può assumere una delle seguenti forme:
- 	     - una struttura del tipo poly([])
-  	     - una struttura del tipo poly(Ms)
-  	     - una struttura del tipo m(0, 0, [])
-  	     - una struttura del tipo m(...)
-  	     - un'espressione non parsata rappresentante un polinomio      	          
+Predicate: polytimes_k (Poly1, K, Result)
+Description: The polytimes predicate is true when Result is
+ the polynomial resulting from the multiplication of Poly1 and K.
+ where K is a numerical value.
+Poly1 can take one of the following forms:
+ - a structure of the poly type ([])
+  - a structure of the poly type (Ms)
+  - a structure of the type m (0, 0, [])
+  - a structure of the type m (...)
+  - a non-parsed expression representing a polynomial
 
-Predicate: polypower(Poly, N, Result)
-Descrizione: Il predicato polytimes è vero quando Result è il polinomio Poly "elevato" alla N.
-	     Poly può assumere una delle seguenti forme:
- 	     - una struttura del tipo poly([])
-  	     - una struttura del tipo poly(Ms)
-  	     - una struttura del tipo m(0, 0, [])
-  	     - una struttura del tipo m(...)
-  	     - un'espressione non parsata rappresentante un polinomio   
-	     
-Predicate: as_monomial(Expression, Monomial)
-Descrizione: Il predicato as_monomial è vero quando Monomial è il termine che rappresenta il monomio risultante dal
-	     “parsing” dell’espressione Expression; il monomio risultante viene appropriatamente ordinato.
+Predicate: polypower (Poly, N, Result)
+Description: The polytimes predicate is true when Result is the Poly "elevated" polynomial.
+Poly can take one of the following forms:
+ - a structure of the poly type ([])
+  - a structure of the poly type (Ms)
+  - a structure of the type m (0, 0, [])
+  - a structure of the type m (...)
+  - a non-parsed expression representing a polynomial
 
-Predicate: as_polynomial(Expression, Polynomial)
-Descrizione: Il predicato as_polynomial è vero quando Polynomial è il termine che rappresenta il polinomio risultante
-	     dal “parsing” dell’espressione Expression; il polinomio viene appropriatamente ordinato.
+Predicate: as_monomial (Expression, Monomial)
+Description: The as_monomial predicate is true when Monomial is the term that represents the monomial resulting from
+"Parsing" of the expression Expression; the resulting monomone is appropriately ordered.
+
+Predicate: as_polynomial (Expression, Polynomial)
+Description: The as_polynomial predicate is true when Polynomial is the term that represents the resulting polynomial
+from the "parsing" of the expression Expression; the polynomial is appropriately ordered.
 
 Predicate: polyval(Polynomial, VariableValues, Value)
 Descrizione: Il predicato polyval è vero quanto Value contiene il valore del polinomio Polynomial (che può anche
