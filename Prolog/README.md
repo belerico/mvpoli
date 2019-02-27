@@ -6,7 +6,7 @@ con poly([]) si intende la struttura polinomio nullo
   
 ----------------------------------------------------------------------------------------------  
   
-# INTRODUZIONE:  
+# INTRODUCTION:  
 Lo scopo di questo progetto è la costruzione di una libreria per la manipolazione di polinomi multivariati.
 dalla specifica del pdf era richiesto di implementare operazioni standard e abbastanza semplici sui polinomi, noi ci siamo
 voluti spingere un po oltre, e abbiamo anche implementato cose un po più avanzate, per esempio la possibilità di trattare un polinomio elevato alla n, oppure polinomi con più coefficenti, polinomi che si moltiplicano ecc..
@@ -39,14 +39,14 @@ Si considera polinomio:
   - un'espressione non parsata rappresentante un polinomio  
 abbiamo deciso di strutturare a libreria nel seguente modo, abbiamo definito una serie di predicati "pubblici" che sono quelli richiesti dalla specifica del pdf più alcuni aggiunti da noi, e inoltre abbiamo definito una serie di predicati "privati" che sono quelli diciamo 
 "di supporto" a quelli "pubblici".
-Dato che l'utente che utilizza questa libreria non dovrebbe essere a conoscenza dei predicati privati, qui di seguito descriviamo solo come utilizzare i predicati pubblici.
+Dato che l'utente che utilizza questa libreria non dovrebbe essere a conoscenza dei predicati privati, qui di seguito descriviamo solo come utilizzare i predicati pubblici.  
+  
+----------------------------------------------------------------------------------------------  
 
-----------------------------------------------------------------------------------------------
-
-# PREDICATI:
-Predicate: is_monomial(Monomial)
-Descrzione: Il predicato is_monomial è vero quando Monomial è un monomio.
-            Monomial può assumere una delle seguenti forme:
+# PREDICATES:  
+Predicate: is_monomial(Monomial)  
+Descrzione: Il predicato is_monomial è vero quando Monomial è un monomio.  
+            Monomial può assumere una delle seguenti forme:  
  	    - una struttura del tipo poly([])
   	    - una struttura del tipo poly(Ms) rappresentante monomio
   	    - una struttura del tipo m(0, 0, [])
