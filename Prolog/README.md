@@ -9,10 +9,10 @@
 
 # INTRODUCTION:
 
-The aim of this project is the construction of a library for the manipulation of multivariate polynomials.
+The aim of this project is the construction of a library for the manipulation of multivariate polynomials.  
 from the pdf specification it was required to implement standard and fairly simple operations on polynomials, we are there
 wanted to push a little further, and we have also implemented things a bit more advanced, for example the ability to treat a polynomial elevated to n, or polynomials with more coefficients, polynomials that multiply etc ..
-the only untreated case is the division between polynomials.
+the only untreated case is the division between polynomials.  
 examples of cases treated: (x + y) ^ 2, 3 * x * 5 * z + a * 3 * b, (x + y) * (2 * a + b)
 given that from the specification of the pdf the interpretation of what can be a monomial and what a polynomial has seemed quite free
 we have opted for this interpretation:
@@ -21,11 +21,12 @@ As a result, we asked ourselves the following question:
 can the expression x + x be considered a monomial? Or better:
 are all those expressions that are simplified and are composed of a single term?
 If we consider it as a whole x + x it is not monomial, it is syntactically incorrect, but if before making such a request the simplifications of the case are made, then it can be considered as such.
-Ultimately we opted to consider expressions similar to x + x as monomials.
+Ultimately we opted to consider expressions similar to x + x as monomials.  
 To confirm, we asked the same question to wolfram | alpha:
-https://www.wolframalpha.com/input/?i=is+x%2Bx+monomial%3F.
-so now let's list what we consider a polynomial and what a monomial:
+https://www.wolframalpha.com/input/?i=is+x%2Bx+monomial%3F.  
+So now let's list what we consider a polynomial and what a monomial.  
 It is considered monomial:
+
 * a structure of the poly type (Ms) where Ms is a list containing only one term, or Ms is a list with more terms and after simplifying this list there remains only one term. Example: poly ([m (1, 1, [v (1, x)]), m (1, 1, [v (1, x)])]) => poly ([m (2, 1, [ v (1, x)])]) (turns out to be a monomial after simplifying)
 * a structure of the poly type ([])
 * a structure of the type m (0, 0, [])
@@ -41,20 +42,20 @@ It is considered a polynomial:
 * a non-parsed expression representing a polynomial
 
 We decided to structure it as a library in the following way, we defined a series of "public" predicates that are those required by the specification of the pdf plus some added by us, and we have also defined a series of "private" predicates that are what we say
-"support" to "public" ones.
+"support" to "public" ones.  
 Since the user who uses this library should not be aware of private predicates, we describe below only how to use public predicates.
 
 -------------------------------------------------- --------------------------------------------
 
 # PREDICATES:
 Predicate: is_monomial (Monomial)
-Description: The is_monomial predicate is true when Monomial is a monomial.
-            Monomial can take one of the following forms:
- - a structure of the poly type ([])
-  - a poly (Ms) representative monomial structure
-  - a structure of the type m (0, 0, [])
-  - a structure of the type m (...)
-  - a non-parsed expression representing monomial
+
+* Description: The is_monomial predicate is true when Monomial is a monomial. Monomial can take one of the following forms:
+    * a structure of the poly type ([])
+    * a poly (Ms) representative monomial structure
+    * a structure of the type m (0, 0, [])
+    * a structure of the type m (...)
+    * a non-parsed expression representing monomial
 
 Predicate: is_polynomial (Poly)
 Description: The is_polynomial predicate is true when Poly is a polynomial.
