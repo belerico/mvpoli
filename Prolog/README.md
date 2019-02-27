@@ -78,30 +78,30 @@ Predicate: coefficients (Poly, Coefficients)
 Predicate: variables (Poly, Variables)
 
 * Description: The variables predicate is true when Variables is a list of variable symbols that appear in Poly. Poly can take one of the following forms:
-    * a structure of the type poly ([])
-    * a structure of the poly type (Ms)
-    * a structure of the type m (0, 0, [])
-    * a structure of the type m (...)
-    * an unparsed expression representing a polynomial
-  
+    * a structure of the type poly ([])
+    * a structure of the poly type (Ms)
+    * a structure of the type m (0, 0, [])
+    * a structure of the type m (...)
+    * an unparsed expression representing a polynomial
+
 Predicate: monomials (Poly, Monomials)
 
 * Description: The predicate monomials is true when Monomials is the ordered list, of the monomials that appear in Poly. Poly can take one of the following forms:
-    * a structure of the type poly ([])
-    * a structure of the poly type (Ms)
-    * a structure of the type m (0, 0, [])
-    * a structure of the type m (...)
-    * an unparsed expression representing a polynomial
+    * a structure of the type poly ([])
+    * a structure of the poly type (Ms)
+    * a structure of the type m (0, 0, [])
+    * a structure of the type m (...)
+    * an unparsed expression representing a polynomial
 
 Predicate: maxdegree (Poly, Degree)
-Description: The maxdegree predicate is true when Degree is the maximum degree of the monomers that appear in Poly.
-  Poly can take one of the following forms:
- - a structure of the poly type ([])
-  - a structure of the poly type (Ms)
-  - a structure of the type m (0, 0, [])
-  - a structure of the type m (...)
-  - a non-parsed expression representing a polynomial
-  
+
+* Description: The maxdegree predicate is true when Degree is the maximum degree of the monomers that appear in Poly. Poly can take one of the following forms:
+    * a structure of the poly type ([])
+    * a structure of the poly type (Ms)
+    * a structure of the type m (0, 0, [])
+    * a structure of the type m (...)
+    * a non-parsed expression representing a polynomial
+
 Predicate: mindegree (Poly, Degree)
 Description: The mindegree predicate is true when Degree is the minimum degree of the monomials that appear in Poly.
 Poly can take one of the following forms:
@@ -167,23 +167,22 @@ Predicate: as_polynomial (Expression, Polynomial)
 Description: The as_polynomial predicate is true when Polynomial is the term that represents the resulting polynomial
 from the "parsing" of the expression Expression; the polynomial is appropriately ordered.
 
-Predicate: polyval(Polynomial, VariableValues, Value)
-Descrizione: Il predicato polyval è vero quanto Value contiene il valore del polinomio Polynomial (che può anche
-	     essere un monomio), nel punto n-dimensionale rappresentato dalla lista VariableValues, che contiene un
-             valore per ogni variabile ottenuta con il predicato variables/2.
-	     Poly può assumere una delle seguenti forme:
- 	     - una struttura del tipo poly([])
-  	     - una struttura del tipo poly(Ms)
-  	     - una struttura del tipo m(0, 0, [])
-  	     - una struttura del tipo m(...)
-  	     - un'espressione non parsata rappresentante un polinomio   
-	     
-Predicate: pprint polynomial(Polynomial)
-Descrizione: Il predicato pprint polynomial risulta vedo dopo aver stampato sullo “standard output” una rappresentazione tradizionale del 		     termine polinomio associato a Polynomial. 
-	     Poly può assumere una delle seguenti forme:
- 	     - una struttura del tipo poly([])
-  	     - una struttura del tipo poly(Ms)
-  	     - una struttura del tipo m(0, 0, [])
-  	     - una struttura del tipo m(...)
-  	     - un'espressione non parsata rappresentante un polinomio   
+Predicate: polyval (Polynomial, VariableValues, Value)
+Description: The polyval predicate is true as Value contains the value of the Polynomial polynomial (which can also
+be a monomial), in the n-dimensional point represented by the VariableValues ​​list, which contains a
+             value for each variable obtained with the variables / 2 predicate.
+Poly can take one of the following forms:
+ - a structure of the poly type ([])
+  - a structure of the poly type (Ms)
+  - a structure of the type m (0, 0, [])
+  - a structure of the type m (...)
+  - a non-parsed expression representing a polynomial
 
+Predicate: pprint polynomial (Polynomial)
+Description: The pprint polynomial predicate results I see after having printed on the "standard output" a traditional representation of the polynomial term associated with Polynomial.
+Poly can take one of the following forms:
+ - a structure of the poly type ([])
+  - a structure of the poly type (Ms)
+  - a structure of the type m (0, 0, [])
+  - a structure of the type m (...)
+  - a non-parsed expression representing a polynomial
