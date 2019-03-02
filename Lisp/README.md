@@ -43,7 +43,7 @@ Since the user who uses this library should not be aware of the private function
 
 FUNCTIONS:
 Function: (is-monomial Monomial) 
-Output: T or NIL
+  Output: T or NIL
 Description: Given a Monomial structure, return the list of varpowers VP-list. Monomial can take one of the following forms:
    * a structure of the type (POLY NIL)
    * a structure of the type (POLY Ms) representing a monomial
@@ -53,7 +53,7 @@ Description: Given a Monomial structure, return the list of varpowers VP-list. M
   	    
 
 Function: (is-polynomial Polynomial)
-Output: T or NIL
+  Output: T or NIL
 Description: Given a Monomial structure, return the list of varpowers VP-list. Polynomial can take one of the following forms:
    * a structure of the type (POLY NIL)
    * a structure of the type (POLY Ms)
@@ -63,7 +63,7 @@ Description: Given a Monomial structure, return the list of varpowers VP-list. P
   
 
 Function: (Monomial varpowers)
-Output: VP-list
+  Output: VP-list
 Description: Given a Monomial structure, return the list of varpowers VP-list.
 Monomial can take one of the following forms:
    * a structure of the type (POLY NIL)
@@ -74,7 +74,7 @@ Monomial can take one of the following forms:
 
 
 Function (vars-of Monomial)
-Output: Variables
+  Output: Variables
 Description: Given a Monomial structure, it returns the list of variables Variables.
 Monomial can take one of the following forms:
    * a structure of the type (POLY NIL)
@@ -85,7 +85,7 @@ Monomial can take one of the following forms:
 
 
 Function: (monomial-degree Monomial)
-Output: TotalDegree
+  Output: TotalDegree
 Description: Given a Monomial structure, it returns its total degree TotalDegree.
 Monomial can take one of the following forms:
    * a structure of the type (POLY NIL)
@@ -96,7 +96,7 @@ Monomial can take one of the following forms:
 
 
 Function: (monomial-coefficient Monomial)
-Output: Coefficient
+  Output: Coefficient
 Description: Given a Monomial structure, it returns its Coefficient coefficient.
 Monomial can take one of the following forms:
    * a structure of the type (POLY NIL)
@@ -107,7 +107,7 @@ Monomial can take one of the following forms:
 
 
 Function: (Poly coefficients)
-Output: Coefficients
+  Output: Coefficients
 Description: The coefficients function returns a Coefficients list of the "obviously" Poly coefficients.
  Poly can take one of the following forms:
    * a structure of the type (POLY NIL)
@@ -118,7 +118,7 @@ Description: The coefficients function returns a Coefficients list of the "obvio
 
 
 Function: (Poly variables)
-Output: Variables
+  Output: Variables
 Description: The variables function returns a Variables list of the variable symbols that appear in Poly.
 Poly can take one of the following forms:
    * a structure of the type (POLY NIL)
@@ -128,7 +128,7 @@ Poly can take one of the following forms:
    * an unparsed expression representing a polynomial
 
 Function: (Poly monomials)
-Output: Monomials
+  Output: Monomials
 Description: The monomials function returns the ordered list, of the monomials that appear in Poly.
 Poly can take one of the following forms:
    * a structure of the type (POLY NIL)
@@ -138,7 +138,7 @@ Poly can take one of the following forms:
    * an unparsed expression representing a polynomial
 
 Function: (Poly maxdegree)
-Output: Degree
+  Output: Degree
 Description: The maxdegree function returns the maximum degree of the monomers that appear in Poly.
 Poly can take one of the following forms:
    * a structure of the type (POLY NIL)
@@ -148,7 +148,7 @@ Poly can take one of the following forms:
    * an unparsed expression representing a polynomial
 
 Function: (Poly Mindegree)
-Output: Degree
+  Output: Degree
 Description: The mindegree function returns the minimum degree of the monomers that appear in Poly.
 Poly can take one of the following forms:
    * a structure of the type (POLY NIL)
@@ -158,7 +158,7 @@ Poly can take one of the following forms:
    * an unparsed expression representing a polynomial
 
 Function: (polyplus Poly1 Poly2)
-Output: Result
+  Output: Result
 Description: The polyplus function produces the sum polynomial of Poly1 and Poly2.
 Poly1 and Poly2 can take one of the following forms:
    * a structure of the type (POLY NIL)
@@ -168,7 +168,7 @@ Poly1 and Poly2 can take one of the following forms:
    * an unparsed expression representing a polynomial
 
 Function: (polyminus Poly1 Poly2)
-Output: Result
+  Output: Result
 Description: The polyplus function produces the polynomial difference of Poly1 and Poly2.
 Poly1 and Poly2 can take one of the following forms:
    * a structure of the type (POLY NIL)
@@ -178,7 +178,7 @@ Poly1 and Poly2 can take one of the following forms:
    * an unparsed expression representing a polynomial 
 
 Function: (polytimes Poly1 Poly2)
-Output: Result
+  Output: Result
 Description: The polytimes function returns the polynomial resulting from the multiplication of Poly1 and Poly2.
 Poly1 and Poly2 can take one of the following forms:
    * a structure of the type (POLY NIL)
@@ -188,7 +188,7 @@ Poly1 and Poly2 can take one of the following forms:
    * an unparsed expression representing a polynomial
 
 Function: (polytimes-k Poly K)
-Output: Result
+  Output: Result
 Description: The polytimes function returns the polynomial resulting from the multiplication of Poly and K.
 where K is a numerical value.
 Poly can take one of the following forms:
@@ -199,7 +199,7 @@ Poly can take one of the following forms:
    * an unparsed expression representing a polynomial
 
 Function: (polypower Poly N)
-Output: Result
+  Output: Result
 Description: The polypower function returns the Poly "high" polynomial to N.
 Poly can take one of the following forms:
    * a structure of the type (POLY NIL)
@@ -209,17 +209,17 @@ Poly can take one of the following forms:
    * an unparsed expression representing a polynomial
 
 Function: (as-monomial Expression)
-Output: Monomial
+  Output: Monomial
 Description: The as-monomial function returns the data structure (list) that represents the monomial resulting from
 "Parsing" of the expression Expression; the resulting monomial must be appropriately ordered.
 
 Function: (as-polynomial Expression)
-Output: Polynomial
+  Output: Polynomial
 Description: The as-polynomial function returns the data structure (list) representing the monomial resulting from
 "Parsing" of the expression Expression; the resulting polynomial must be appropriately ordered.
 
 Function: (polyval Polynomial VariableValues)
-Output: Value
+  Output: Value
 Description: The polyval function returns the Value value of the Polynomial polynomial (which can also be a
 monomial), in the n-dimensional point represented by the VariableValues ​​list, which contains a value for
 every variable obtained with the variables function.
@@ -231,7 +231,7 @@ Polynomial can take one of the following forms:
    * an unparsed expression representing a polynomial
 
 Function: (pprint-polynomial Polynomial)
-Output: NIL
+  Output: NIL
 Description: The pprint-polynomial function returns NIL after having printed on the "standard output" a traditional representation of the polynomial term associated with Polynomial.
              Polynomial can take one of the following forms:
    * a structure of the type (POLY NIL)
