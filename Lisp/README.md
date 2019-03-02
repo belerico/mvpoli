@@ -1,8 +1,8 @@
 # LEGENDA:
-with (M ...) we mean the monomial structure thus formed: (M Coefficient TotalDegree VarsPowers)
-with (M 0 0 NIL) we mean the null monomial structure
-with (POLY Ms) we mean the polynomial structure, where instead of Ms we mean a list of monomial structures (M ...)
-with (POLY NIL) we mean the null polynomial structure
+   * with (M ...) we mean the monomial structure thus formed: (M Coefficient TotalDegree VarsPowers)
+   * with (M 0 0 NIL) we mean the null monomial structure
+   * with (POLY Ms) we mean the polynomial structure, where instead of Ms we mean a list of monomial structures (M ...)
+   * with (POLY NIL) we mean the null polynomial structure
 
 ----------------------------------------------------------------------------------------------
 
@@ -139,7 +139,7 @@ Poly can take one of the following forms:
 
 Function: (maxdegree Poly)  
 Output: Degree  
-Description: The maxdegree function returns the maximum degree of the monomers that appear in Poly.  
+Description: The maxdegree function returns the maximum degree of the monomials that appear in Poly.  
 Poly can take one of the following forms:
    * a structure of the type (POLY NIL)
    * a structure of the type (POLY Ms)
@@ -149,7 +149,7 @@ Poly can take one of the following forms:
 
 Function: (mindegree Poly)  
 Output: Degree  
-Description: The mindegree function returns the minimum degree of the monomers that appear in Poly.  
+Description: The mindegree function returns the minimum degree of the monomials that appear in Poly.  
 Poly can take one of the following forms:
    * a structure of the type (POLY NIL)
    * a structure of the type (POLY Ms)
