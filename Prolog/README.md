@@ -51,56 +51,56 @@ Since the user who uses this library should not be aware of private predicates, 
 Predicate: is_monomial(Monomial)
 
 Description: The is_monomial predicate is true when Monomial is a monomial. Monomial can take one of the following forms:
-    * a structure of the type poly([])
-    * a poly(Ms) representative monomial structure
-    * a structure of the type m(0, 0, [])
-    * a structure of the type m(...)
-    * a non-parsed expression representing monomial
+* a structure of the type poly([])
+* a poly(Ms) representative monomial structure
+* a structure of the type m(0, 0, [])
+* a structure of the type m(...)
+* a non-parsed expression representing monomial
 
 Predicate: is_polynomial(Poly)
 
 Description: The is_polynomial predicate is true when Poly is a polynomial. Poly can take one of the following forms:
-    * a structure of the type poly([])
-    * a structure of the type poly(Ms)
-    * a structure of the type m(0, 0, [])
-    * a structure of the type m(...)
-    * a non-parsed expression representing a polynomial
+* a structure of the type poly([])
+* a structure of the type poly(Ms)
+* a structure of the type m(0, 0, [])
+* a structure of the type m(...)
+* a non-parsed expression representing a polynomial
 
 Predicate: coefficients(Poly, Coefficients)
 
 Description: The predicate coefficients is true when Coefficients is a list of "obviously" Poly coefficients. Poly can take one of the following forms:
-    * a structure of the type poly([])
-    * a structure of the type poly(Ms)
-    * a structure of the type m(0, 0, [])
-    * a structure of the type m(...)
-    * a non-parsed expression representing a polynomial    
-	      
+* a structure of the type poly([])
+* a structure of the type poly(Ms)
+* a structure of the type m(0, 0, [])
+* a structure of the type m(...)
+* a non-parsed expression representing a polynomial
+	  
 Predicate: variables(Poly, Variables)
 
 Description: The variables predicate is true when Variables is a list of variable symbols that appear in Poly. Poly can take one of the following forms:
-    * a structure of the type poly([])
-    * a structure of the type poly(Ms)
-    * a structure of the type m(0, 0, [])
-    * a structure of the type m(...)
-    * an unparsed expression representing a polynomial
+* a structure of the type poly([])
+* a structure of the type poly(Ms)
+* a structure of the type m(0, 0, [])
+* a structure of the type m(...)
+* an unparsed expression representing a polynomial
 
 Predicate: monomials(Poly, Monomials)
 
 Description: The predicate monomials is true when Monomials is the ordered list, of the monomials that appear in Poly. Poly can take one of the following forms:
-    * a structure of the type poly([])
-    * a structure of the type poly(Ms)
-    * a structure of the type m(0, 0, [])
-    * a structure of the type m(...)
-    * an unparsed expression representing a polynomial
+* a structure of the type poly([])
+* a structure of the type poly(Ms)
+* a structure of the type m(0, 0, [])
+* a structure of the type m(...)
+* an unparsed expression representing a polynomial
 
 Predicate: maxdegree(Poly, Degree)
 
 Description: The maxdegree predicate is true when Degree is the maximum degree of the monomers that appear in Poly. Poly can take one of the following forms:
-    * a structure of the type poly([])
-    * a structure of the type poly(Ms)
-    * a structure of the type m(0, 0, [])
-    * a structure of the type m(...)
-    * a non-parsed expression representing a polynomial
+* a structure of the type poly([])
+* a structure of the type poly(Ms)
+* a structure of the type m(0, 0, [])
+* a structure of the type m(...)
+* a non-parsed expression representing a polynomial
 
 Predicate: mindegree(Poly, Degree)
 
