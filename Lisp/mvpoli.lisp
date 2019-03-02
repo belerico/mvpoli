@@ -587,7 +587,7 @@
                 (and (= 1 (length Ms2)) 
                      (= 0 (get-coeff (first Ms2)))
                 )
-            )) 
+            ) 
             (create-mon 0 0 NIL)
 	    (mapcan (lambda(M1) (mon-times-ms M1 Ms2)) Ms1)
 	)	
