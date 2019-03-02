@@ -1,46 +1,42 @@
 # LEGENDA:
-con (M ...) si intende la struttura monomio così formata: (M Coefficient TotalDegree VarsPowers) 
-con (M 0 0 NIL) si intende la struttura monomio nullo
-con (POLY Ms) si intende la struttura polinomio, dove al posto di Ms si intende una lista di strutture monomio (M ...) 
-con (POLY NIL) si intende la struttura polinomio nullo
+with (M ...) we mean the monomial structure thus formed: (M Coefficient TotalDegree VarsPowers)
+with (M 0 0 NIL) we mean the null monomial structure
+with (POLY Ms) we mean the polynomial structure, where instead of Ms we mean a list of monomial structures (M ...)
+with (POLY NIL) we mean the null polynomial structure
 
 ----------------------------------------------------------------------------------------------
 
 # INTRODUCTION:
-Lo scopo di questo progetto è la costruzione di una libreria per la manipolazione di polinomi multivariati.
-dalla specifica del pdf era richiesto di implementare operazioni standard e abbastanza semplici sui polinomi, noi ci siamo
-voluti spingere un po oltre, e abbiamo anche implementato cose un po più avanzate, per esempio la possibilità di trattare un polinomio elevato alla n, oppure polinomi con più coefficenti, polinomi che si moltiplicano ecc..
-l'unico caso non trattato è la divisione tra polinomi.
-esempi di casi trattati: (x+y)^2, 3*x*5*z + a*3*b, (x+y)*(2*a+b), ....
-dato che dalla specifica del pdf l'interpretazione di cosa possa essere un monomio e cosa un polinomio è sembrata abbastanza libera
-noi abbiamo optato per questa interpretazione:
-innanzi tutto per quanto riguarda i monomi abbiamo voluto sfruttare il concetto di "ereditarietà" secondo cui un monomio è un polinomio composto solo da un termine (https://en.wikipedia.org/wiki/Monomial).
-Di conseguenza ci siamo posti la seguente domanda:
-si può considerare un monomio l'espressione x+x? O meglio:
-sono da considerarsi monomi tutte quelle espressioni che, semplificate, sono composte da un singolo termine?
-Se lo si considera nella sua globalità x+x non è monomio, è sintatticamente scorretto, ma se prima di porsi tal domanda si effettuano le semplificazioni del caso, allora lo si può ritenere tale.
-In definitiva abbiamo optato per considerare espressioni simili a x+x come dei monomi.
-Per avere conferme, abbiamo posto la stessa domanda a wolfram|alpha:
+The aim of this project is the construction of a library for the manipulation of multivariate polynomials.
+From the pdf specification it was required to implement standard and fairly simple operations on polynomials, we are there
+wanted to push a little further, and we have also implemented things a bit more advanced, for example the ability to treat a polynomial elevated to n, or polynomials with more coefficients, polynomials that multiply etc ..
+the only untreated case is the division between polynomials.
+examples of cases treated: (x + y) ^ 2, 3 * x * 5 * z + a * 3 * b, (x + y) * (2 * a + b), ....
+given that from the specification of the pdf the interpretation of what can be a monomial and what a polynomial has seemed quite free
+we have opted for this interpretation:
+First of all, as regards the monomers, we wanted to exploit the concept of "inheritance" according to which a monomial is a polynomial composed only by a term (https://en.wikipedia.org/wiki/Monomial).
+As a result, we asked ourselves the following question:
+can the expression x + x be considered a monomial? Or better:
+are all those expressions that are simplified and are composed of a single term?
+If we consider it as a whole x + x it is not monomial, it is syntactically incorrect, but if before making such a request the simplifications of the case are made, then it can be considered as such.
+Ultimately we opted to consider expressions similar to x + x as monomials.
+To confirm, we asked the same question to wolfram | alpha:
 https://www.wolframalpha.com/input/?i=is+x%2Bx+monomial%3F.
-quindi ora elenchiamo cosa noi consideriamo un polinomio e cosa un monomio:
-Si considera monomio:
-  - una struttura del tipo poly(Ms) dove Ms è una lista contenente un solo termine, 
-    oppure Ms è una lista con più termini e dopo aver semplificato tale lista rimane un solo termine
-    Esempio: (POLY ((M 1 1 ((V 1 X))) (M 1 1 ((V 1 X))))) => (POLY ((M 2 1 ((V 1 X))))) (risulta essere un monomio dopo aver semplificato).
-    definiamo per questo caso particolare la struttura (POLY Ms), struttura rappresentante un monomio.
-  - una struttura del tipo (POLY NIL)
-  - una struttura del tipo (M 0 0 NIL)
-  - una struttura del tipo (M ...)
-  - un'espressione non parsata rappresentante un monomio
-Si considera polinomio:
-  - una struttura del tipo (POLY NIL)
-  - una struttura del tipo (POLY Ms)
-  - una struttura del tipo (M ...)
- - un'espressione non parsata rappresentante un polinomio 
-abbiamo deciso di strutturare a libreria nel seguente modo, abbiamo definito una serie di funzioni "pubbliche" che sono quelle richieste dalla specifica del pdf più alcune aggiunte da noi, e inoltre abbiamo definito una serie di funzioni "private" che sono quelle diciamo 
-"di supporto" a quelle "pubbliche".
-Dato che l'utente che utilizza questa libreria non dovrebbe essere a conoscenza delle funzioni private, qui di seguito descriviamo solo come utilizzare le funzioni pubbliche.
-
+so now let's list what we consider a polynomial and what a monomial:
+It is considered monomial:
+   * a structure of the type poly(Ms) where Ms is a list containing only one term, or Ms is a list with more terms and after simplifying this list there remains only one term. Example: (POLY ((M 1 1 ((V 1 X))) (M 1 1 ((V 1 X))))) => (POLY ((M 2 1 ((V 1 X))))) (turns out to be a monomial after simplifying). For this particular case we define the structure (POLY Ms), a structure representing a monomial.
+   * a structure of the type (POLY NIL)
+   * a structure of the type (M 0 0 NIL)
+   * a structure of the type (M ...)
+   * a non-parsed expression representing a monomial
+It is considered a polynomial:
+   * a structure of the type (POLY NIL)
+   * a structure of the type (POLY Ms)
+   * a structure of the type (M ...)
+   * a non-parsed expression representing a polynomial
+we decided to structure it as a library in the following way, we defined a series of "public" functions that are those required by the specification of the pdf plus some additions from us, and we have also defined a series of "private" functions that are what we say
+"support" to "public" ones.
+Since the user who uses this library should not be aware of the private functions, we describe below only how to use the public functions.
 ----------------------------------------------------------------------------------------------
 
 FUNCTIONS:
