@@ -27,7 +27,7 @@ https://www.wolframalpha.com/input/?i=is+x%2Bx+monomial%3F.
 So now let's list what we consider a polynomial and what a monomial.  
 It is considered monomial:
 
-* a structure of the type poly(Ms) where Ms is a list containing only one term, or Ms is a list with more terms and after simplifying this list there remains only one term. Example: poly([m(1, 1, [v (1, x)]), m(1, 1, [v (1, x)])]) => poly([m(2, 1, [ v (1, x)])]) (turns out to be a monomial after simplifying)
+* a structure of the type poly(Ms) where Ms is a list containing only one term, or Ms is a list with more terms and after simplifying this list there remains only one term. Example: poly([m(1, 1, [v(1, x)]), m(1, 1, [v(1, x)])]) => poly([m(2, 1, [ v(1, x)])]) (turns out to be a monomial after simplifying)
 * a structure of the type poly([])
 * a structure of the type m(0, 0, [])
 * a structure of the type m(...)
@@ -48,7 +48,7 @@ Since the user who uses this library should not be aware of private predicates, 
 -------------------------------------------------- --------------------------------------------
 
 # PREDICATES:
-Predicate: is_monomial (Monomial)
+Predicate: is_monomial(Monomial)
 
 * Description: The is_monomial predicate is true when Monomial is a monomial. Monomial can take one of the following forms:
     * a structure of the type poly([])
@@ -57,7 +57,7 @@ Predicate: is_monomial (Monomial)
     * a structure of the type m(...)
     * a non-parsed expression representing monomial
 
-Predicate: is_polynomial (Poly)
+Predicate: is_polynomial(Poly)
 
 * Description: The is_polynomial predicate is true when Poly is a polynomial. Poly can take one of the following forms:
     * a structure of the type poly([])
@@ -66,7 +66,7 @@ Predicate: is_polynomial (Poly)
     * a structure of the type m(...)
     * a non-parsed expression representing a polynomial
 
-Predicate: coefficients (Poly, Coefficients)
+Predicate: coefficients(Poly, Coefficients)
 
 * Description: The predicate coefficients is true when Coefficients is a list of "obviously" Poly coefficients. Poly can take one of the following forms:
     * a structure of the type poly([])
@@ -75,7 +75,7 @@ Predicate: coefficients (Poly, Coefficients)
     * a structure of the type m(...)
     * a non-parsed expression representing a polynomial    
 	      
-Predicate: variables (Poly, Variables)
+Predicate: variables(Poly, Variables)
 
 * Description: The variables predicate is true when Variables is a list of variable symbols that appear in Poly. Poly can take one of the following forms:
     * a structure of the type poly([])
@@ -84,7 +84,7 @@ Predicate: variables (Poly, Variables)
     * a structure of the type m(...)
     * an unparsed expression representing a polynomial
 
-Predicate: monomials (Poly, Monomials)
+Predicate: monomials(Poly, Monomials)
 
 * Description: The predicate monomials is true when Monomials is the ordered list, of the monomials that appear in Poly. Poly can take one of the following forms:
     * a structure of the type poly([])
@@ -93,7 +93,7 @@ Predicate: monomials (Poly, Monomials)
     * a structure of the type m(...)
     * an unparsed expression representing a polynomial
 
-Predicate: maxdegree (Poly, Degree)
+Predicate: maxdegree(Poly, Degree)
 
 * Description: The maxdegree predicate is true when Degree is the maximum degree of the monomers that appear in Poly. Poly can take one of the following forms:
     * a structure of the type poly([])
@@ -102,7 +102,7 @@ Predicate: maxdegree (Poly, Degree)
     * a structure of the type m(...)
     * a non-parsed expression representing a polynomial
 
-Predicate: mindegree (Poly, Degree)
+Predicate: mindegree(Poly, Degree)
 
 * Description: The mindegree predicate is true when Degree is the minimum degree of the monomials that appear in Poly. Poly can take one of the following forms:
   * a structure of the type poly([])
@@ -111,7 +111,7 @@ Predicate: mindegree (Poly, Degree)
   * a structure of the type m(...)
   * a non-parsed expression representing a polynomial
 
-Predicate: polyplus (Poly1, Poly2, Result)
+Predicate: polyplus(Poly1, Poly2, Result)
 
 * Description: The polyplus predicate is true when Result is the sum polynomial of Poly1 and Poly2. Poly1 and Poly2 can take one of the following forms:
   * a structure of the type poly([])
@@ -120,7 +120,7 @@ Predicate: polyplus (Poly1, Poly2, Result)
   * a structure of the type m(...)
   * a non-parsed expression representing a polynomial
 
-Predicate: polyminus (Poly1, Poly2, Result)
+Predicate: polyminus(Poly1, Poly2, Result)
 
 * Description: The polyminus predicate is true when Result is the polynomial difference of Poly1 and Poly2. Poly1 and Poly2 can take one of the following forms:
   * a structure of the type poly([])
@@ -129,7 +129,7 @@ Predicate: polyminus (Poly1, Poly2, Result)
   * a structure of the type m(...)
   * a non-parsed expression representing a polynomial
 
-Predicate: polytimes (Poly1, Poly2, Result)
+Predicate: polytimes(Poly1, Poly2, Result)
 
 * Description: The polytimes predicate is true when Result is the polynomial resulting from the multiplication of Poly1 and Poly2. Poly1 and Poly2 can take one of the following forms:
   * a structure of the type poly([])
@@ -138,7 +138,7 @@ Predicate: polytimes (Poly1, Poly2, Result)
   * a structure of the type m(...)
   * a non-parsed expression representing a polynomial
 
-Predicate: polytimes_k (Poly1, K, Result)
+Predicate: polytimes_k(Poly1, K, Result)
 
 * Description: The polytimes predicate is true when Result is the polynomial resulting from the multiplication of Poly1 and K, where K is a numerical value. Poly1 can take one of the following forms:
   * a structure of the type poly([])
@@ -147,7 +147,7 @@ Predicate: polytimes_k (Poly1, K, Result)
   * a structure of the type m(...)
   * a non-parsed expression representing a polynomial
 
-Predicate: polypower (Poly, N, Result)
+Predicate: polypower(Poly, N, Result)
 
 * Description: The polytimes predicate is true when Result is the Poly "elevated" polynomial. Poly can take one of the following forms:
   * a structure of the type poly([])
@@ -156,15 +156,15 @@ Predicate: polypower (Poly, N, Result)
   * a structure of the type m(...)
   * a non-parsed expression representing a polynomial
 
-Predicate: as_monomial (Expression, Monomial)
+Predicate: as_monomial(Expression, Monomial)
 
 * Description: The as_monomial predicate is true when Monomial is the term that represents the monomial resulting from "Parsing" of the expression Expression; the resulting monomone is appropriately ordered.
 
-Predicate: as_polynomial (Expression, Polynomial)
+Predicate: as_polynomial(Expression, Polynomial)
 
 * Description: The as_polynomial predicate is true when Polynomial is the term that represents the resulting polynomial from the "parsing" of the expression Expression; the polynomial is appropriately ordered.
 
-Predicate: polyval (Polynomial, VariableValues, Value)
+Predicate: polyval(Polynomial, VariableValues, Value)
 
 * Description: The polyval predicate is true as Value contains the value of the Polynomial polynomial (which can also be a monomial), in the n-dimensional point represented by the VariableValues list, which contains a value for each variable obtained with the variables / 2 predicate. Poly can take one of the following forms:
   * a structure of the type poly([])
@@ -173,7 +173,7 @@ Predicate: polyval (Polynomial, VariableValues, Value)
   * a structure of the type m(...)
   * a non-parsed expression representing a polynomial
 
-Predicate: pprint polynomial (Polynomial)
+Predicate: pprint polynomial(Polynomial)
 
 * Description: The pprint polynomial predicate results I see after having printed on the "standard output" a traditional representation of the polynomial term associated with Polynomial. Poly can take one of the following forms:
   * a structure of the type poly([])
