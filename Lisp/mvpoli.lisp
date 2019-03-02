@@ -579,10 +579,15 @@
   per la lista di strutture monomio Ms2.
 |#
 (defun ms-times-ms(Ms1 Ms2)
+        ;Se Ms1 = (M 0 MD get-vs) oppure
         ;Se Ms2 = (M 0 MD get-vs) inutile proseguire
-        (if (and (= 1 (length Ms2)) 
-                 (= 0 (get-coeff (first Ms2)))    
-            ) 
+        (if (or (and (= 1 (length Ms1))
+                     (= 0 (get-coeff (first Ms1)))
+                )
+                (and (= 1 (length Ms2)) 
+                     (= 0 (get-coeff (first Ms2)))
+                )
+            )) 
             (create-mon 0 0 NIL)
 	    (mapcan (lambda(M1) (mon-times-ms M1 Ms2)) Ms1)
 	)	
