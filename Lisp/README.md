@@ -42,8 +42,8 @@ Since the user who uses this library should not be aware of the private function
 ----------------------------------------------------------------------------------------------
 
 FUNCTIONS:
-Function: (is-monomial Monomial) 
-  Output: T or NIL
+Function: (is-monomial Monomial)  
+Output: T or NIL  
 Description: Given a Monomial structure, return the list of varpowers VP-list. Monomial can take one of the following forms:
    * a structure of the type (POLY NIL)
    * a structure of the type (POLY Ms) representing a monomial
@@ -52,8 +52,8 @@ Description: Given a Monomial structure, return the list of varpowers VP-list. M
    * an unparsed expression representing a monomial 
   	    
 
-Function: (is-polynomial Polynomial)
-  Output: T or NIL
+Function: (is-polynomial Polynomial)  
+Output: T or NIL   
 Description: Given a Monomial structure, return the list of varpowers VP-list. Polynomial can take one of the following forms:
    * a structure of the type (POLY NIL)
    * a structure of the type (POLY Ms)
@@ -62,9 +62,9 @@ Description: Given a Monomial structure, return the list of varpowers VP-list. P
    * an unparsed expression representing a polynomial
   
 
-Function: (Monomial varpowers)
-  Output: VP-list
-Description: Given a Monomial structure, return the list of varpowers VP-list.
+Function: (Monomial varpowers)  
+Output: VP-list   
+Description: Given a Monomial structure, return the list of varpowers VP-list.  
 Monomial can take one of the following forms:
    * a structure of the type (POLY NIL)
    * a structure of the type (POLY Ms) representing a monomial
@@ -73,9 +73,9 @@ Monomial can take one of the following forms:
    * an unparsed expression representing a monomial
 
 
-Function (vars-of Monomial)
-  Output: Variables
-Description: Given a Monomial structure, it returns the list of variables Variables.
+Function (vars-of Monomial)  
+Output: Variables  
+Description: Given a Monomial structure, it returns the list of variables Variables.  
 Monomial can take one of the following forms:
    * a structure of the type (POLY NIL)
    * a structure of the type (POLY Ms) representing a monomial
@@ -84,9 +84,9 @@ Monomial can take one of the following forms:
    * an unparsed expression representing a monomial
 
 
-Function: (monomial-degree Monomial)
-  Output: TotalDegree
-Description: Given a Monomial structure, it returns its total degree TotalDegree.
+Function: (monomial-degree Monomial)  
+Output: TotalDegree  
+Description: Given a Monomial structure, it returns its total degree TotalDegree.  
 Monomial can take one of the following forms:
    * a structure of the type (POLY NIL)
    * a structure of the type (POLY Ms) representing a monomial
@@ -95,9 +95,9 @@ Monomial can take one of the following forms:
    * an unparsed expression representing a monomial
 
 
-Function: (monomial-coefficient Monomial)
-  Output: Coefficient
-Description: Given a Monomial structure, it returns its Coefficient coefficient.
+Function: (monomial-coefficient Monomial)  
+Output: Coefficient  
+Description: Given a Monomial structure, it returns its Coefficient coefficient.  
 Monomial can take one of the following forms:
    * a structure of the type (POLY NIL)
    * a structure of the type (POLY Ms) representing a monomial
@@ -106,10 +106,10 @@ Monomial can take one of the following forms:
    * an unparsed expression representing a monomial
 
 
-Function: (Poly coefficients)
-  Output: Coefficients
-Description: The coefficients function returns a Coefficients list of the "obviously" Poly coefficients.
- Poly can take one of the following forms:
+Function: (Poly coefficients)  
+Output: Coefficients  
+Description: The coefficients function returns a Coefficients list of the "obviously" Poly coefficients.  
+Poly can take one of the following forms:
    * a structure of the type (POLY NIL)
    * a structure of the type (POLY Ms)
    * a structure of the type (M ...)
