@@ -21,21 +21,23 @@ are all those expressions that are simplified and are composed of a single term?
 If we consider it as a whole x + x it is not monomial, it is syntactically incorrect, but if before making such a request the simplifications of the case are made, then it can be considered as such.
 Ultimately we opted to consider expressions similar to x + x as monomials.
 To confirm, we asked the same question to wolfram | alpha:
-https://www.wolframalpha.com/input/?i=is+x%2Bx+monomial%3F.
-so now let's list what we consider a polynomial and what a monomial:
+https://www.wolframalpha.com/input/?i=is+x%2Bx+monomial%3F.  
+So now let's list what we consider a polynomial and what a monomial:
 It is considered monomial:
    * a structure of the type poly(Ms) where Ms is a list containing only one term, or Ms is a list with more terms and after simplifying this list there remains only one term. Example: (POLY ((M 1 1 ((V 1 X))) (M 1 1 ((V 1 X))))) => (POLY ((M 2 1 ((V 1 X))))) (turns out to be a monomial after simplifying). For this particular case we define the structure (POLY Ms), a structure representing a monomial.
    * a structure of the type (POLY NIL)
    * a structure of the type (M 0 0 NIL)
    * a structure of the type (M ...)
    * a non-parsed expression representing a monomial
+
 It is considered a polynomial:
    * a structure of the type (POLY NIL)
    * a structure of the type (POLY Ms)
    * a structure of the type (M ...)
    * a non-parsed expression representing a polynomial
-we decided to structure it as a library in the following way, we defined a series of "public" functions that are those required by the specification of the pdf plus some additions from us, and we have also defined a series of "private" functions that are what we say
-"support" to "public" ones.
+
+We decided to structure it as a library in the following way, we defined a series of "public" functions that are those required by the specification of the pdf plus some additions from us, and we have also defined a series of "private" functions that are what we say
+"support" to "public" ones.  
 Since the user who uses this library should not be aware of the private functions, we describe below only how to use the public functions.
 ----------------------------------------------------------------------------------------------
 
