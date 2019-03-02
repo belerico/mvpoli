@@ -38,17 +38,18 @@ It is considered a polynomial:
 
 We decided to structure it as a library in the following way, we defined a series of "public" functions that are those required by the specification of the pdf plus some additions from us, and we have also defined a series of "private" functions that are what we say "support" to "public" ones.  
 Since the user who uses this library should not be aware of the private functions, we describe below only how to use the public functions.
+
 ----------------------------------------------------------------------------------------------
 
 FUNCTIONS:
 Function: (is-monomial Monomial) 
-Output: T o NIL
-Descrizione: Data una struttura Monomial, ritorna la lista di varpowers VP-list. Monomial può assumere una delle seguenti forme:
-   * una struttura del tipo (POLY NIL)
-   * una struttura del tipo (POLY Ms) rappresentante un monomio
-   * una struttura del tipo (M ...)
-   * una struttura del tipo (M 0 0 NIL)
-   * un'espressione non parsata rappresentante un monomio 
+Output: T or NIL
+Description: Given a Monomial structure, return the list of varpowers VP-list. Monomial can take one of the following forms:
+    * a structure of the type (POLY NIL)
+    * a structure of the type (POLY Ms) representing a monomial
+    * a structure of the type (M ...)
+    * a structure of the type (M 0 0 NIL)
+    * an unparsed expression representing a monomial 
   	    
 
 Function: (is-polynomial Polynomial) 
